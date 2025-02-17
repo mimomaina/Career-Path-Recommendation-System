@@ -3,14 +3,12 @@
 Overview
 
 The Career Path Recommendation System is an NLP-driven application designed to help job seekers identify their next best job role based on their skills, experience, and qualifications. Using text-based classification, the system predicts suitable job roles, providing insights into career progression and automation risks.
-
 This project is implemented using NLP techniques, machine learning classification models, and Streamlit for an interactive interface.
 
 
 Problem Statement
 
 Job seekers often struggle with identifying the right career progression based on their expertise. The system addresses this problem by matching users to the most relevant job roles, using NLP to analyze job descriptions, skills, and experience requirements.
-
 Instead of relying on traditional job search filters, this system leverages text similarity and machine learning to make data-driven career recommendations.
 
 Dataset Description
