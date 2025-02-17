@@ -72,7 +72,12 @@ Note:
 Industry and Job Automation Type were manually created as part of the data cleaning process to add context to job roles.
 Some fields (e.g., Contact Info) were dropped due to irrelevance in prediction.
 
+
  Exploratory Data Analysis (EDA)
+ The following areas where explored:
+   1.Job Role Distribution & Trends
+   2.Skills Demand Analysis
+   3.Salary Ranges & Career Progression
 
 
 
