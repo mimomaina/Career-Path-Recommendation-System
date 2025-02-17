@@ -74,9 +74,13 @@ Some fields (e.g., Contact Info) were dropped due to irrelevance in prediction.
 
 
  Exploratory Data Analysis (EDA)
+ 
  The following areas where explored:
+ 
    1.Job Role Distribution & Trends
+   
    2.Skills Demand Analysis
+   
    3.Salary Ranges & Career Progression
 
 
