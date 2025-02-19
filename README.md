@@ -1,6 +1,6 @@
 # Career-Path-Recommendation-System
 
- **Business Context**
+ ##**Business Context**
  
 Many professionals and job seekers struggle to identify career paths that align with their skills, experience, and academic background. On the employer side, matching candidates to job roles efficiently remains a challenge. This project aims to bridge this gap by developing a machine-learning-based system that recommends suitable career paths to users based on their profiles.
 
