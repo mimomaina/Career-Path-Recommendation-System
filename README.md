@@ -1,21 +1,16 @@
 # Career-Path-Recommendation-System
 
-Overview
+ **Business Context**
+ 
+Many professionals and job seekers struggle to identify career paths that align with their skills, experience, and academic background. On the employer side, matching candidates to job roles efficiently remains a challenge. This project aims to bridge this gap by developing a machine-learning-based system that recommends suitable career paths to users based on their profiles.
 
-The Career Path Recommendation System is an NLP-driven application designed to help job seekers identify their next best job role based on their skills, experience, and qualifications. Using text-based classification, the system predicts suitable job roles, providing insights into career progression and automation risks.
-This project is implemented using NLP techniques, machine learning classification models, and Streamlit for an interactive interface.
+**Goal**
 
+The goal of this project is to build an intelligent career recommendation system that analyzes user profiles and job descriptions to suggest the best job matches. The system leverages Natural Language Processing (NLP) techniques and machine learning classification models to improve job matching accuracy.
 
-Problem Statement
+**Data Overview**
 
-Job seekers often struggle with identifying the right career progression based on their expertise. The system addresses this problem by matching users to the most relevant job roles, using NLP to analyze job descriptions, skills, and experience requirements.
-Instead of relying on traditional job search filters, this system leverages text similarity and machine learning to make data-driven career recommendations.
-
-Dataset Description
-
-The dataset consists of 292,167 job postings collected between 2021 and 2023. The data is static and was cleaned to focus only on tech-related roles.
-
-Descriptions for each of the columns in the dataset:
+The dataset consists of the following columns:
 
 1.Job Id: A unique identifier for each job posting.
 
@@ -67,78 +62,76 @@ Descriptions for each of the columns in the dataset:
 
 25.Job Automation(Created Feature):	Risk of automation (Low, Semi, High).
 
-Note:
+*Note:*
 
 Industry and Job Automation Type were manually created as part of the data cleaning process to add context to job roles.
+
 Some fields (e.g., Contact Info) were dropped due to irrelevance in prediction.
 
+The 'skills', 'Qualifications' and 'Job Title' columns were preprocessed using standard NLP techniques, including:
+-Lowercasing
 
- Exploratory Data Analysis (EDA)
+-Punctuation removal
+
+-Tokenization
+
+-Stopword removal
+
+-Lemmatization
+
+
+Additionally, Named Entity Recognition (NER) was applied to extract structured information from user profiles and job descriptions.
  
- The following areas where explored:
- 
-   1.Job Role Distribution & Trends
-   
-   2.Skills Demand Analysis
-   
-   3.Salary Ranges & Career Progression
+ **Applications**
+This system can be integrated into:
+
+Job recommendation platforms (e.g., LinkedIn, Indeed, Glassdoor)
+
+Career counseling and guidance systems
+
+Recruitment automation for HR teams
+
+By leveraging NLP and machine learning, the system enhances career decision-making and hiring efficiency.
+
+**Approach to Model Design and Model Integration**
+
+1.Text Preprocessing & Feature Engineering
+
+Applied TF-IDF vectorization to convert text into numerical features.
+
+Used Cosine Similarity to measure the relevance of user profiles to job descriptions.
+
+2.Similarity Analysis (Cosine Similarity Graph)
+
+The following visualization demonstrates the similarity scores between user profiles and job descriptions:
 
 
 
 
+**Classification Modeling**
+
+To improve job match accuracy, we are implementing:
+
+Machine Learning Models (e.g., XGBoost) or
+Transformer-Based Models (e.g., SBERT)
+
+The best-performing model will be selected based on accuracy, precision-recall, and F1-score.
 
 
-  Model Development
+**Deployment**
+
+Integrate into a Streamlit web app for an interactive recommendation system
+
+**Outcome**
+
+Successfully extracted and structured user and job data.
+
+Implemented Cosine Similarity for initial job matching.
+
+**Future Work**
+
+Expand dataset coverage to include more job categories and industries( currently for tech jobs only)
+
+
+
   
-Approach: Text-Based NLP Classification
--We use NLP to classify job roles based on user inputs.
-
-Steps in Model Development:
-1. Data Preprocessing:
-
-Text cleaning (lowercasing, removing stopwords, lemmatization).
-Tokenization & vectorization using TF-IDF & Word Embeddings (BERT/Sentence Transformers).
-
-2. Feature Engineering:
-
-Convert Skills, Experience, and Responsibilities into vectorized features.
-Use TF-IDF for traditional ML models or Transformer embeddings for deep learning.
-
-3. Model Selection & Training:
-
-Classification Model (Random Forest, XGBoost, or BERT) trained to predict the next best job role.
-Model evaluates text similarity between user input and job descriptions.
-
-4. Evaluation Metrics:
-
-Accuracy, Precision, Recall, and F1-score for classification.
-Cosine Similarity Score for recommendations.
-
-Streamlit Web App Deployment
-The user-friendly Streamlit web app allows candidates to input their details and get instant job role recommendations.
-
-User Flow
-
-1. User Inputs:
-
-Skills (e.g., Python, Data Analysis)
-Experience (e.g., 3 years)
-Qualifications (e.g., Bachelor’s in CS)
-
-2. System Processing:
-
-Cleans and vectorizes input text.
-Compares input with job dataset using NLP similarity.
-Uses classification model to predict best job match.
-
-3. Output Display:
-
-a. Recommended Job Role(s)
-b. Confidence Score for each prediction
-c. Industry & Automation Risk Insights
-
-Future Enhancements:
-
-1. Implement personalized job alerts.
-2. Improve recommendations using user feedback loops.
-
