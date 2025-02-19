@@ -8,6 +8,7 @@ Many professionals and job seekers struggle to identify career paths that align 
 
 The goal of this project is to build an intelligent career recommendation system that analyzes user profiles and job descriptions to suggest the best job matches. The system leverages Natural Language Processing (NLP) techniques and machine learning classification models to improve job matching accuracy.
 
+
 **Data Overview**
 
 The dataset consists of the following columns:
@@ -81,8 +82,10 @@ The 'skills', 'Qualifications' and 'Job Title' columns were preprocessed using s
 
 
 Additionally, Named Entity Recognition (NER) was applied to extract structured information from user profiles and job descriptions.
+
  
  **Applications**
+ 
 This system can be integrated into:
 
 Job recommendation platforms (e.g., LinkedIn, Indeed, Glassdoor)
@@ -92,6 +95,7 @@ Career counseling and guidance systems
 Recruitment automation for HR teams
 
 By leveraging NLP and machine learning, the system enhances career decision-making and hiring efficiency.
+
 
 **Approach to Model Design and Model Integration**
 
@@ -118,9 +122,12 @@ Transformer-Based Models (e.g., SBERT)
 The best-performing model will be selected based on accuracy, precision-recall, and F1-score.
 
 
+
 **Deployment**
 
 Integrate into a Streamlit web app for an interactive recommendation system
+
+
 
 **Outcome**
 
