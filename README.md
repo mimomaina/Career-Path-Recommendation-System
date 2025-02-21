@@ -103,37 +103,34 @@ By leveraging NLP and machine learning, the system enhances career decision-maki
 
 Applied TF-IDF vectorization to convert text into numerical features.
 
-Used Cosine Similarity to measure the relevance of user profiles to job descriptions.
+Used FAISS .
 
-2.Similarity Analysis (Cosine Similarity Graph)
+2.**Similary Search Methods**
 
-The following visualization demonstrates the similarity scores between user profiles and job descriptions:
+A. Cosine Similarity (FAISS)
+
+It measures the directional similarity between job vectors, ignoring magnitude.
+
+How
+TF-IDF vectors are L2-normalized to make cosine similarity computation equivalent to a dot product.
+
+FAISS indexes these normalized vectors and retrieves the most similar job descriptions based on cosine similarity.
+
+B. L2 (Euclidean Distance) Search
+
+It measures the absolute distance between job vectors in high-dimensional space.
+
+Jobs with smaller Euclidean distances are considered more similar.
+
+FAISS efficiently indexes and retrieves the nearest jobs based on L2 distance.
+
+**Model Evaluation & Insights**
+
+FAISS significantly improved search efficiency compared to traditional methods.
+
+Different distance metrics can be used interchangeably, but cosine similarity worked best for text-based job matching.
 
 
-
-
-**Classification Modeling**
-
-To improve job match accuracy, we are implementing:
-
-Machine Learning Models (e.g., XGBoost) or
-Transformer-Based Models (e.g., SBERT)
-
-The best-performing model will be selected based on accuracy, precision-recall, and F1-score.
-
-
-
-**Deployment**
-
-Integrate into a Streamlit web app for an interactive recommendation system
-
-
-
-**Outcome**
-
-Successfully extracted and structured user and job data.
-
-Implemented Cosine Similarity for initial job matching.
 
 **Future Work**
 
