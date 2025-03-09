@@ -1,140 +1,135 @@
-# Career-Path-Recommendation-System
+# Career Recommendation System
+
+## Project Overview
+This project is designed to provide **personalized career recommendations** for job seekers in the tech industry. By leveraging **SBERT embeddings with FAISS**, the system will analyze user-inputted skills and match them to relevant job roles based on job descriptions and responsibilities. Unlike traditional keyword-based matching, this approach ensures **context-aware recommendations** that go beyond job titles.
+
+## Features
+- **Dynamic Skill Extraction**: Automatically extracts and processes skills from job descriptions.
+- **Semantic Job Matching**: Uses **SBERT embeddings** to understand job descriptions contextually.
+- **Efficient Search with FAISS**: Enables fast and scalable job recommendations.
+- **Autocomplete for User Skills**: Provides suggestions based on extracted skill data.
+- **Multiple Distance Metrics**: Compares **Cosine Similarity vs. Euclidean Distance** for better results.
+
+---
+
+## Methodology
+### **1 Data Preprocessing & Skill Extraction**
+**Extract Job Information**
+- Combined **Job Title, Job Description, Responsibilities, and Skills** into a structured format.
+- Removed unnecessary columns and cleaned job descriptions (HTML tags, special symbols, etc.).
+
+**Dynamic Skill Extraction**
+- **Extracted skills directly from 'skills column'** instead of using a predefined list.
+- **Processed multi-word skills** like "machine learning" and "cloud computing."
+- **Filtered generic terms** (e.g., "skills", "knowledge") that don't contribute to job matching.
+- **Stored extracted skills in JSON and CSV** for future use in autocomplete.
+
+---
 
- __Business Context__
- 
-Many professionals and job seekers struggle to identify career paths that align with their skills, experience, and academic background. On the employer side, matching candidates to job roles efficiently remains a challenge. This project aims to bridge this gap by developing a machine-learning-based system that recommends suitable career paths to users based on their profiles.
+### **2 Building the Recommendation Engine**
+**Generate SBERT Embeddings**
+- Used **`all-MiniLM-L6-v2`** from `sentence-transformers` to encode job descriptions.
+- Created embeddings for **both job descriptions and user-inputted skills**.
 
-**Goal**
+**Store & Retrieve with FAISS**
+- Implemented **HNSW FAISS indexing** for fast similarity search.
+- Experimented with **Euclidean Distance vs. Cosine Similarity**.
 
-The goal of this project is to build an intelligent career recommendation system that analyzes user profiles and job descriptions to suggest the best job matches. The system leverages Natural Language Processing (NLP) techniques and machine learning classification models to improve job matching accuracy.
+**Match User Skills to Jobs**
+- Transformed user-entered skills into SBERT embeddings.
+- Queried FAISS to find the closest job descriptions.
+- Returned the **most relevant job title & description**.
 
+**Handling Job Title Variations**
+- Prioritized **job descriptions over job titles** for better matching.
+- Considered **clustering similar job titles** using DBSCAN or K-Means.
 
-**Data Overview**
+---
 
-The dataset consists of the following columns:
+## 🎯 Evaluation Metrics
+Since there is no user feedback loop yet, the system was evaluated using offline metrics:
 
-1.Job Id: A unique identifier for each job posting.
+**Top-K Accuracy**: Measures if the correct job title is in the top-K recommendations.
+**Cosine Similarity vs. Euclidean Distance**: Compared these metrics to find the best retrieval strategy.
+**Manual Sanity Checks**: Random job descriptions were manually validated against retrieved results.
 
-2.Experience: The required or preferred years of experience for the job.
+**Goal:** Achieve at least **75% Top-5 accuracy** for strong performance.
 
-3.Qualifications: The educational qualifications needed for the job.
+---
 
-4.Salary Range: The range of salaries or compensation offered for the position.
+## Repository Structure
+```
+Career-Recommendation-System
+ ├── data/               # Raw and processed datasets
+ ├── models/             # Stored embeddings and FAISS index
+ ├── notebooks/          # Jupyter notebooks for experimentation
+ ├── scripts/            # Python scripts for extraction & preprocessing
+ ├── extracted_tech_skills.json  # Extracted skills for autocomplete
+ ├── extracted_tech_skills.csv   # Extracted skills in CSV format
+ ├── cleaned_job_data.csv        # Preprocessed dataset
+ ├── README.md             # Project documentation
+```
 
-5.Location: The city or area where the job is located.
+---
 
-6.Country: The country where the job is located.
+## 🔧 Installation & Usage
+### **1 Clone the Repository**
+```bash
+git clone https://github.com/yourusername/Career-Recommendation-System.git
+cd Career-Recommendation-System
+```
 
-7.Latitude: The latitude coordinate of the job location.
+### **2 Install Dependencies**
+```bash
+pip install -r requirements.txt
+```
 
-8.Longitude: The longitude coordinate of the job location.
+### **3 Run Data Preprocessing**
+```bash
+python scripts/preprocess_data.py
+```
 
-9.Work Type: The type of employment (e.g., full-time, part-time, contract).
+### **4 Generate Embeddings & Build FAISS Index**
+```bash
+python scripts/generate_embeddings.py
+```
 
-10.Company Size: The approximate size or scale of the hiring company.
+### **5 Run the Recommendation System**
+```bash
+python scripts/recommend_job.py --skills "Python, Machine Learning, SQL"
+```
 
-11.Job Posting Date: The date when the job posting was made public.
+---
 
-12.Preference: Special preferences or requirements for applicants (e.g., Only Male or Only Female, or Both)
+## Next Steps
+**Enhance the recommendation system** by incorporating **real-time user feedback.**  
+**Optimize FAISS parameters** for improved accuracy & speed.  
+**Deploy as a web API** for broader accessibility.  
 
-13.Contact Person: The name of the contact person or recruiter for the job.
+---
 
-14.Contact: Contact information for job inquiries.
+## License
+This project is licensed under the **MIT License**.
 
-15.Title: The job title or position being advertised.
+---
 
-16.Role: The role or category of the job (e.g., software developer, marketing manager).
+## Contributing
+Pull requests are welcome! If you'd like to contribute, please create an issue first to discuss your proposed changes.
 
-17.Job Portal: The platform or website where the job was posted.
+---
 
-18.Job Description: A detailed description of the job responsibilities and requirements.
+## Author
+**Your Name**  
+Contact: your.email@example.com  
+GitHub: [yourusername](https://github.com/yourusername)  
 
-19.Benefits: Information about benefits offered with the job (e.g., health insurance, retirement plans).
+---
 
-20.Skills: The skills or qualifications required for the job.
+**Ready to get started?** Clone the repo and start exploring the power of AI-driven career recommendations!
 
-21.Responsibilities: Specific responsibilities and duties associated with the job.
 
-22.Company Name: The name of the hiring company.
 
-23.Company Profile: A brief overview of the company's background and mission.
 
-24.Industry(Created Feature):	The sector the job belongs to (e.g., Tech ).
-
-25.Job Automation(Created Feature):	Risk of automation (Low, Semi, High).
-
-*Note:*
-
-Industry and Job Automation Type were manually created as part of the data cleaning process to add context to job roles.
-
-Some fields (e.g., Contact Info) were dropped due to irrelevance in prediction.
-
-The 'skills', 'Qualifications' and 'Job Title' columns were preprocessed using standard NLP techniques, including:
--Lowercasing
-
--Punctuation removal
-
--Tokenization
-
--Stopword removal
-
--Lemmatization
-
-
-Additionally, Named Entity Recognition (NER) was applied to extract structured information from user profiles and job descriptions.
-
- 
- **Applications**
- 
-This system can be integrated into:
-
-Job recommendation platforms (e.g., LinkedIn, Indeed, Glassdoor)
-
-Career counseling and guidance systems
-
-Recruitment automation for HR teams
-
-By leveraging NLP and machine learning, the system enhances career decision-making and hiring efficiency.
-
-
-**Approach to Model Design and Model Integration**
-
-1.Text Preprocessing & Feature Engineering
-
-Applied TF-IDF vectorization to convert text into numerical features.
-
-Used FAISS .
-
-2.**Similary Search Methods**
-
-A. Cosine Similarity (FAISS)
-
-It measures the directional similarity between job vectors, ignoring magnitude.
-
-How
-TF-IDF vectors are L2-normalized to make cosine similarity computation equivalent to a dot product.
-
-FAISS indexes these normalized vectors and retrieves the most similar job descriptions based on cosine similarity.
-
-B. L2 (Euclidean Distance) Search
-
-It measures the absolute distance between job vectors in high-dimensional space.
-
-Jobs with smaller Euclidean distances are considered more similar.
-
-FAISS efficiently indexes and retrieves the nearest jobs based on L2 distance.
-
-**Model Evaluation & Insights**
-
-FAISS significantly improved search efficiency compared to traditional methods.
-
-Different distance metrics can be used interchangeably, but cosine similarity worked best for text-based job matching.
-
-
-
-**Future Work**
-
-Expand dataset coverage to include more job categories and industries( currently for tech jobs only)
 
 
 
