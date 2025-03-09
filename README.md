@@ -46,7 +46,7 @@ This project is designed to provide **personalized career recommendations** for 
 
 ---
 
-## 🎯 Evaluation Metrics
+## Evaluation Metrics
 Since there is no user feedback loop yet, the system was evaluated using offline metrics:
 
 **Top-K Accuracy**: Measures if the correct job title is in the top-K recommendations.
