@@ -61,7 +61,7 @@ Since there is no user feedback loop yet, the system was evaluated using offline
 ```
 Career-Recommendation-System
  ├── Career_path_recommendation_datacleaning.ipynb/               # Initial data cleaning
- ├── models/             # Stored embeddings and FAISS index
+ ├── (Embeddings)_Career_recommendation_system.ipynb/             # Stored embeddings and FAISS index
  ├── notebooks/          # Jupyter notebooks for experimentation
  ├── (Updated)_Career_recommendation_system.ipynb/            # Python scripts for extraction & preprocessing
  ├── extracted_tech_skills.json  # Extracted skills for autocomplete
