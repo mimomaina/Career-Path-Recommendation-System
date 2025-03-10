@@ -60,7 +60,7 @@ Since there is no user feedback loop yet, the system was evaluated using offline
 ## Repository Structure
 ```
 Career-Recommendation-System
- ├── data/               # Raw and processed datasets
+ ├── Career_path_recommendation_datacleaning.ipynb/               # Initial data cleaning
  ├── models/             # Stored embeddings and FAISS index
  ├── notebooks/          # Jupyter notebooks for experimentation
  ├── (Updated)_Career_recommendation_system.ipynb/            # Python scripts for extraction & preprocessing
