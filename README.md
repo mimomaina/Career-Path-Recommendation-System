@@ -63,7 +63,7 @@ Career-Recommendation-System
  ├── data/               # Raw and processed datasets
  ├── models/             # Stored embeddings and FAISS index
  ├── notebooks/          # Jupyter notebooks for experimentation
- ├── scripts/            # Python scripts for extraction & preprocessing
+ ├── (Updated)_Career_recommendation_system.ipynb/            # Python scripts for extraction & preprocessing
  ├── extracted_tech_skills.json  # Extracted skills for autocomplete
  ├── extracted_tech_skills.csv   # Extracted skills in CSV format
  ├── cleaned_job_data.csv        # Preprocessed dataset
