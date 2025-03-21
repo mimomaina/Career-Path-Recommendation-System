@@ -90,12 +90,14 @@ user_skills = st.multiselect(
     options=extracted_skills,
     default=[]
 )
-# Installation
+
+
+### Installation
 Clone the repository:
 git clone https://github.com/your-username/careerpath-matching-system.git
 cd careerpath-matching-system
 
-# Install dependencies:
+Install dependencies:
 
 pip install -r requirements.txt
 
