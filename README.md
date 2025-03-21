@@ -75,7 +75,7 @@ The system includes an **interactive autocomplete feature** for user input. This
 - Enhances user experience by allowing them to quickly select relevant skills.
 - Ensures that user inputs are standardized and consistent with the dataset.
 
-Example Implementation:
+  Example Implementation:
 ```python
 import json
 import streamlit as st
@@ -91,50 +91,48 @@ user_skills = st.multiselect(
     default=[]
 )
 
-
 ### Installation
 Clone the repository:
 git clone https://github.com/your-username/careerpath-matching-system.git
 cd careerpath-matching-system
 
-Install dependencies:
-
+### Install dependencies:
 pip install -r requirements.txt
 
-# Download the dataset:
-
+### Download the dataset:
 Place job_descriptions.csv and other dataset files in the data/ folder.
 
-# Run the Streamlit app:
-
+### Run the Streamlit app:
 streamlit run app.py
 
-#Usage
-
+### Usage
 Launch the app and enter your skills in the input box.
 The system will recommend suitable roles and highlight missing skills.
-Explore additional filters for refined results.
+Explore additional filters for refined results
 
-# Contributing
-
+### Contributing
 Contributions are welcome! To contribute:
 
-Fork the repository.
-
+### Fork the repository.
 Create a new branch (git checkout -b feature/your-feature).
-
 Commit your changes (git commit -m "Add your feature").
-
 Push to the branch (git push origin feature/your-feature).
-
 Open a pull request.
 
-
-**License**
-
+### License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-Copy
+
+
+
+
+
+
+
+
+
+
+
 
 
 
