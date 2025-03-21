@@ -75,22 +75,6 @@ The system includes an **interactive autocomplete feature** for user input. This
 - Enhances user experience by allowing them to quickly select relevant skills.
 - Ensures that user inputs are standardized and consistent with the dataset.
 
-  Example Implementation:
-```python
-import json
-import streamlit as st
-
-# Load extracted skills
-with open("data/extracted_tech_skills.json", "r") as file:
-    extracted_skills = json.load(file)
-
-# Autocomplete input for skills
-user_skills = st.multiselect(
-    "Select your skills (or type to search):",
-    options=extracted_skills,
-    default=[]
-)
-
 ### Installation
 Clone the repository:
 git clone https://github.com/your-username/careerpath-matching-system.git
@@ -123,6 +107,22 @@ Open a pull request.
 This project is licensed under the MIT License. See the LICENSE file for details.
 
 
+### Autocomplete code
+  Example Implementation:
+```python
+import json
+import streamlit as st
+
+# Load extracted skills
+with open("data/extracted_tech_skills.json", "r") as file:
+    extracted_skills = json.load(file)
+
+# Autocomplete input for skills
+user_skills = st.multiselect(
+    "Select your skills (or type to search):",
+    options=extracted_skills,
+    default=[]
+)
 
 
 
