@@ -218,21 +218,3 @@ git clone <repository-url>
 cd careerpath-matching-system
 
 pip install -r requirements.txt
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
